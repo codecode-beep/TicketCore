@@ -95,7 +95,7 @@ The initial system contains:
 
 ## 6. Important System Scenarios
 
-These scenarios define critical situations that TicketFlow must handle
+These scenarios define critical situations that TicketCore must handle
 correctly, especially under concurrency, retries, and system failures.
 
 ---
@@ -205,7 +205,7 @@ Example:
 
 Payment Provider → SUCCESS
           ↓
-TicketFlow crashes
+TicketCore crashes
 
 #### Expected Behavior
 
