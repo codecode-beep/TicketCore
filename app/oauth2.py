@@ -1,7 +1,7 @@
 import jwt
 from datetime import datetime, timedelta, timezone
 from fastapi import Depends, HTTPException, status
-from . import schemas
+from .schemas import user
 from fastapi.security import OAuth2PasswordBearer
 from .config import settings
 

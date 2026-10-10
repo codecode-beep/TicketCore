@@ -1,6 +1,7 @@
+from ..schemas import user
 from fastapi import FastAPI, status, HTTPException, Depends, APIRouter
 from sqlalchemy.orm import Session
-from .. import database, models, schemas, utils, oauth2
+from .. import database, models, utils, oauth2
 
 router=APIRouter(tags=['Home'])
 

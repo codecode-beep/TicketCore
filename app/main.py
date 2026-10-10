@@ -1,8 +1,8 @@
+from .schemas import user
 from fastapi import FastAPI, status, HTTPException, Depends
-
-from . import models, schemas, utils
+from .database import engine, get_db
+from . import models, utils
 from .routers import user, auth, home
-from .database import engine,get_db
 from sqlalchemy.orm import Session
 
 #models.Base.metadata.create_all(bind=engine)

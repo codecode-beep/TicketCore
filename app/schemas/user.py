@@ -1,9 +1,4 @@
-from pydantic import BaseModel, EmailStr
-
-class Post(BaseModel):
-    title: str
-    content: str
-    published: bool = True
+from pydantic import BaseModel, EmailStr, ConfigDict
 
 class UserCreate(BaseModel):
     email: EmailStr
@@ -15,8 +10,7 @@ class UserOut(BaseModel):
     email: EmailStr
     role: str
 
-    class Config:
-        from_attributese = True
+    model_config = ConfigDict(from_attributes=True)
 
 class UserLogin(BaseModel):
     email: EmailStr
