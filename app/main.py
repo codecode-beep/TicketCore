@@ -2,7 +2,7 @@ from .schemas import user
 from fastapi import FastAPI, status, HTTPException, Depends
 from .database import engine, get_db
 from . import models, utils
-from .routers import user, auth, home
+from .routers import user, auth, home, venue
 from sqlalchemy.orm import Session
 
 #models.Base.metadata.create_all(bind=engine)
@@ -11,7 +11,7 @@ from sqlalchemy.orm import Session
 app= FastAPI(
     title="ticketCore"
 )
-
+#-----test-----
 app.include_router(user.router)
 app.include_router(auth.router)
 app.include_router(home.router)
@@ -20,3 +20,6 @@ app.include_router(home.router)
 def test_post(db: Session = Depends(get_db)):
     return {"status":"Sucess"}
 
+#--------****--------
+
+app.include_router(venue.router)
