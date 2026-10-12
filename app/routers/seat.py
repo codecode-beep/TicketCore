@@ -5,9 +5,7 @@ from sqlalchemy.orm import Session
 from app.database import get_db
 from app.schemas.seat import SeatBulkCreate, SeatResponse
 from app.services import seat as seat_service
-
-# Import your existing require_admin dependency
-# from app.auth import require_admin
+from app.core.dependencies import require_admin
 
 router = APIRouter(tags=["Seats"])
 
@@ -16,7 +14,7 @@ router = APIRouter(tags=["Seats"])
     "/venues/{venue_id}/seats/bulk",
     response_model=list[SeatResponse],
     status_code=status.HTTP_201_CREATED,
-    # dependencies=[Depends(require_admin)]
+    dependencies=[Depends(require_admin)]
 )
 def create_seats_bulk(
     venue_id: int,
