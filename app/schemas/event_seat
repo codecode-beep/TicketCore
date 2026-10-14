@@ -1,0 +1,26 @@
+
+from pydantic import BaseModel, ConfigDict, Field
+
+
+class EventSeatCreate(BaseModel):
+    seat_id: int = Field(gt=0)
+    price: int = Field(ge=0)
+
+
+class EventSeatBulkCreate(BaseModel):
+    seats: list[EventSeatCreate] = Field(min_length=1, max_length=500)
+
+
+class EventSeatPriceUpdate(BaseModel):
+    price: int = Field(ge=0)
+
+
+class EventSeatResponse(BaseModel):
+    id: int
+    event_id: int
+    seat_id: int
+    price: int
+    status: str
+    version: int
+
+    model_config = ConfigDict(from_attributes=True)
