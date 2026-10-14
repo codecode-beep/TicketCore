@@ -2,7 +2,7 @@ from .schemas import user
 from fastapi import FastAPI, status, HTTPException, Depends
 from .database import engine, get_db
 from . import models, utils
-from .routers import user, auth, home, venue, seat, event
+from .routers import user, auth, home, venue, seat, event, reservation
 from sqlalchemy.orm import Session
 
 #models.Base.metadata.create_all(bind=engine)
@@ -25,3 +25,4 @@ def test_post(db: Session = Depends(get_db)):
 app.include_router(venue.router)
 app.include_router(seat.router)
 app.include_router(event.router)
+app.include_router(reservation.router)
